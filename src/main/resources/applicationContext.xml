@@ -19,7 +19,7 @@
     </bean>
 
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-        <property name="packagesToScan" value="com.silviucanton.domain"/>
+        <property name="packagesToScan" value="com.silviucanton.domain.entities"/>
         <property name="dataSource" ref="dataSource"/>
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">

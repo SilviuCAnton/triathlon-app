@@ -1,4 +1,4 @@
-package com.silviucanton.domain;
+package com.silviucanton.domain.entities;
 
 import javax.persistence.*;
 import java.util.Objects;

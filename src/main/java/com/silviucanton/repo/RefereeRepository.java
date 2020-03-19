@@ -1,6 +1,6 @@
 package com.silviucanton.repo;
 
-import com.silviucanton.domain.Referee;
+import com.silviucanton.domain.entities.Referee;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
