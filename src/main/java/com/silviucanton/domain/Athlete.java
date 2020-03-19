@@ -4,14 +4,21 @@ import java.util.Objects;
 
 public class Athlete {
 
-    private Integer id, raceNumber, score;
-    private String firstName, lastName;
+    private Integer id;
 
-    public Athlete(Integer raceNumber, Integer score, String firstName, String lastName) {
+    private Integer raceNumber;
+
+    private Float score;
+
+    private String firstName;
+
+    private String lastName;
+
+    public Athlete(Integer raceNumber, Float score, String firstName, String lastName) {
         this(null, raceNumber, score, firstName, lastName);
     }
 
-    public Athlete(Integer id, Integer raceNumber, Integer score, String firstName, String lastName) {
+    public Athlete(Integer id, Integer raceNumber, Float score, String firstName, String lastName) {
         this.id = id;
         this.raceNumber = raceNumber;
         this.score = score;
@@ -35,11 +42,11 @@ public class Athlete {
         this.raceNumber = raceNumber;
     }
 
-    public Integer getScore() {
+    public Float getScore() {
         return score;
     }
 
-    public void setScore(Integer score) {
+    public void setScore(Float score) {
         this.score = score;
     }
 
@@ -65,15 +72,12 @@ public class Athlete {
         if (o == null || getClass() != o.getClass()) return false;
         Athlete athlete = (Athlete) o;
         return Objects.equals(id, athlete.id) &&
-                Objects.equals(raceNumber, athlete.raceNumber) &&
-                Objects.equals(score, athlete.score) &&
-                Objects.equals(firstName, athlete.firstName) &&
-                Objects.equals(lastName, athlete.lastName);
+                Objects.equals(raceNumber, athlete.raceNumber);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, raceNumber, score, firstName, lastName);
+        return Objects.hash(id, raceNumber);
     }
 
     @Override

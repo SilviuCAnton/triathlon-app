@@ -73,15 +73,12 @@ public class Referee implements Entity<Integer> {
         if (o == null || getClass() != o.getClass()) return false;
         Referee referee = (Referee) o;
         return Objects.equals(id, referee.id) &&
-                Objects.equals(username, referee.username) &&
-                Objects.equals(passwordHash, referee.passwordHash) &&
-                Objects.equals(firstName, referee.firstName) &&
-                Objects.equals(lastName, referee.lastName);
+                Objects.equals(username, referee.username);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, username, passwordHash, firstName, lastName);
+        return Objects.hash(id, username);
     }
 
     @Override
