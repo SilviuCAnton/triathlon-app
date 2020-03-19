@@ -1,8 +1,11 @@
 package com.silviucanton.service;
 
 import com.silviucanton.domain.entities.Athlete;
+import com.silviucanton.domain.exceptions.ValidateException;
+import com.silviucanton.domain.validator.Validator;
 import com.silviucanton.repo.AthleteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,10 +15,12 @@ import java.util.Optional;
 public class AthleteServiceImpl implements AthleteService {
 
     private AthleteRepository athleteRepository;
+    private Validator<Integer, Athlete> validator;
 
     @Autowired
-    public AthleteServiceImpl(AthleteRepository athleteRepository) {
+    public AthleteServiceImpl(AthleteRepository athleteRepository, @Qualifier(value = "athleteValidator") Validator<Integer, Athlete> validator) {
         this.athleteRepository = athleteRepository;
+        this.validator = validator;
     }
 
     public AthleteRepository getAthleteRepository() {
@@ -26,8 +31,17 @@ public class AthleteServiceImpl implements AthleteService {
         this.athleteRepository = athleteRepository;
     }
 
+    public Validator<Integer, Athlete> getValidator() {
+        return validator;
+    }
+
+    public void setValidator(Validator<Integer, Athlete> validator) {
+        this.validator = validator;
+    }
+
     @Override
-    public Athlete saveAthlete(Athlete athlete) {
+    public Athlete saveAthlete(Athlete athlete) throws ValidateException {
+        validator.validate(athlete);
         return athleteRepository.save(athlete);
     }
 
