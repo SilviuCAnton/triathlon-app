@@ -1,15 +1,24 @@
 package com.silviucanton.domain;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+@javax.persistence.Entity
+@Table(name = "Races")
 public class Race implements Entity<Integer> {
 
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Column(name = "raceName")
     private String raceName;
 
+    @OneToMany
+    @JoinColumn(name = "raceId")
     private List<RaceTask> tasks;
 
     public Race() {

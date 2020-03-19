@@ -1,18 +1,30 @@
 package com.silviucanton.domain;
 
+import javax.persistence.*;
 import java.util.Objects;
 
+@javax.persistence.Entity
+@Table(name = "Referees")
 public class Referee implements Entity<Integer> {
 
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Column(name = "username")
     private String username;
 
+    @Column(name = "passwordHash")
     private String passwordHash;
 
+    @Column(name = "firstName")
     private String firstName;
 
+    @Column(name = "lastName")
     private String lastName;
+
+    public Referee() {}
 
     public Referee(String username, String passwordHash, String firstName, String lastName) {
         this(null, username, passwordHash, firstName, lastName);

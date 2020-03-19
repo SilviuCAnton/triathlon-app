@@ -1,14 +1,24 @@
 package com.silviucanton.domain;
 
+import javax.persistence.*;
 import java.util.Objects;
 
+@javax.persistence.Entity
+@Table(name = "RaceTasks")
 public class RaceTask implements Entity<Integer> {
 
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Column(name = "taskName")
     private String taskName;
 
+    @Column(name = "maxPoints")
     private Float maxPoints;
+
+    public RaceTask() {}
 
     public RaceTask(String taskName, Float maxPoints) {
         this(null, taskName, maxPoints);
