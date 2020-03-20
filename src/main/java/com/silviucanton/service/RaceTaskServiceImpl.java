@@ -7,6 +7,7 @@ import com.silviucanton.repo.RaceTaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -41,6 +42,7 @@ public class RaceTaskServiceImpl implements RaceTaskService {
     }
 
     @Override
+    @Transactional
     public RaceTask saveRaceTask(RaceTask raceTask) throws ValidateException {
         validator.validate(raceTask);
         return raceTaskRepository.save(raceTask);

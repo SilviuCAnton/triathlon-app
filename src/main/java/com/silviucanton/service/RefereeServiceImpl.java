@@ -8,6 +8,7 @@ import com.silviucanton.repo.RefereeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -42,6 +43,7 @@ public class RefereeServiceImpl implements RefereeService {
     }
 
     @Override
+    @Transactional
     public Referee saveReferee(Referee referee) throws ValidateException {
         validator.validate(referee);
         return refereeRepository.save(referee);

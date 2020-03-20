@@ -27,4 +27,8 @@ dependencies {
     compile 'org.apache.logging.log4j:log4j-api:2.13.0'
 
 
+    compile 'org.aspectj:aspectjweaver:1.9.5'
+    compile 'org.aspectj:aspectjrt:1.9.5'
+    compile 'org.springframework:spring-aspects:4.3.26.RELEASE'
+    compile 'org.aspectj:aspectjtools:1.9.5'
 }
